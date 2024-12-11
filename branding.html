@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Line with Alternating Rectangles and Circle</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Mochiy Pop One', sans-serif;
+        }
+
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            background-color: #8EACE8;
+        }
+
+        nav {
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #EFA9CE;
+            background-color: rgb(255, 255, 255);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: purple;
+        }
+
+        .main-content {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .circle-container {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .circle {
+            width: 410px;
+            height: 410px;
+            background-color: #EFA9CE;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .circle img {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+        }
+
+        .content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 20%;
+            font-size: 20px;
+        }
+
+        .vertical-line-container {
+            position: relative;
+            width: 8px;
+            height: 60%;
+            background-color: #D8F7FF;
+        }
+
+        .rectangle-container {
+            position: absolute;
+            width: 200px;
+            text-align: center;
+        }
+
+        .rectangle {
+            width: 100%;
+            height: 60px;
+            background-color: #D8F7FF; 
+           display:flex; 
+           justify-content:center; 
+           align-items:center; 
+           cursor:pointer; 
+           transition : transform .3s ease; 
+           text-decoration:none; 
+           color :#EFA9CE; 
+           border-radius :50px; 
+           margin-bottom :10px; 
+       }
+       
+       .rectangle:hover { transform :scale(1.05); }
+       
+       .description { font-size :14px; color :#ffffff; margin-top :5px; }
+       
+       .left { right :calc(100% + 20px); }
+       .right { left :calc(100% + 20px); }
+       
+       .rectangle-container:nth-child(1) { top :10%; }
+       .rectangle-container:nth-child(2) { top :30%; }
+       .rectangle-container:nth-child(3) { top :50%; }
+       .rectangle-container:nth-child(4) { top :70%; }
+       
+       .section { min-height :100vh; display:flex; flex-direction :column; justify-content:center; align-items:center; padding :20px; color:#FFFFFF; }
+       
+       .section h2 { font-size :2.5em; margin-bottom :20px; }
+       
+       /* Hover card styles */
+       .hover-text {
+           color:#EFA9CE; 
+           cursor:pointer; 
+       }
+       
+       .hover-card {
+           display:none; 
+           background-color :rgba(255,255,255,0.1); 
+           padding :20px; 
+           margin-top :10px; 
+           border-radius :5px; 
+       }
+       
+       .hover-card img {
+           max-width :100%; 
+           height:auto; 
+       }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <nav>
+           <ul>
+               <li><a href="#home">HOME</a></li>
+               <li><a href="#about">ABOUT</a></li>
+               <li><a href="#projects">PROJECTS</a></li>
+               <li><a href="#login">LO'S</a></li>
+           </ul>
+       </nav>
+
+       <div class="main-content" id="home">
+           <div class="circle-container">
+               <div class="circle">
+                   <img src="th-removebg-preview.png" alt="Top Image">
+               </div>
+           </div>
+
+           <div class="content">
+               <div class="vertical-line-container">
+                   <div class="rectangle-container left">
+                       <a href="#overview" class="rectangle">Overview</a>
+                       <p class="description">A brief summary of the project</p>
+                   </div>
+                   <div class="rectangle-container right">
+                       <a href="#analyze" class="rectangle">Analyze</a>
+                       <p class="description">In-depth analysis of the data</p>
+                   </div>
+                   <div class="rectangle-container left">
+                       <a href="#inspiration" class="rectangle">Inspiration</a>
+                       <p class="description">Sources of creative ideas</p>
+                   </div>
+                   <div class="rectangle-container right">
+                       <a href="#design" class="rectangle">Design</a>
+                       <p class="description">The visual concept and layout</p>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <!-- Overview Section -->
+       <div id="overview" class="section">
+           <h2>Overview</h2>
+           <p>This section provides a brief summary of the project.</p>
+           <!-- Moodboard with hover functionality -->
+           <p>To begin, I'm going to visually create Claudy's identity. The first step was creating a <span class="hover-text" id="btnMoodboard">moodboard</span>.</p>
+
+           <!-- Hover card for Moodboard -->
+           <div class="hover-card" id="showMoodboard">
+               <img src="Mini_Room_-_Art_-_Copy_2-1440x693-removebg-preview.png" alt="" title="Moodboard">
+               <p>Details about the moodboard go here.</p>
+           </div>
+
+           <!-- Add more content as needed -->
+       </div>
+
+       <!-- Analyze Section -->
+       <div id="analyze" class="section">
+           <h2>Analyze</h2>
+           <p>Here you'll find an in-depth analysis of the project data.</p>
+           <!-- Analysis details with hover functionality -->
+           <p>For my analysis, I looked at what Claudy already had in terms of design and how she presented her identity.</p>
+
+           <!-- Hover card for Analysis -->
+           <div class="hover-card" id="showAnalyze">
+               <!-- Content for analysis details goes here -->
+               <img src="img/deelproducten/Doelgroep.png" alt="" title="Analysis">
+               <p>Details about the analysis go here.</p>
+           </div>
+
+       </div>
+
+       <!-- Inspiration Section -->
+       <div id="inspiration" class="section">
+           <h2>Inspiration</h2>
+           <p>research that i made</p>
+
+           <!-- Hover card for Inspiration -->
+           <div class="hover-card" id="showInspiration">
+               <!-- Content for inspiration details goes here -->
+               <img src="img/deelproducten/InspirationImage.png" alt="" title="Inspiration">
+               <p>Details about inspiration go here.</p>
+           </div>
+
+       </div>
+
+       <!-- Design Section -->
+       <div id="design" class="section">
+           <h2>Design</h2>
+           <p>designing process on figma or any other webpage </p>
+
+           <!-- Hover card for Design -->
+           <div class="hover-card" id="showDesign">
+               <!-- Content for design details goes here -->
+               <img src="img/deelproducten/DesignImage.png" alt="" title="Design">
+               <p>Details about design go here.</p>
+           </div>
+
+       </div>
+
+    </div>
+
+    <!-- JavaScript to handle hover functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const hoverTexts = document.querySelectorAll('.hover-text');
+          const hoverCards = document.querySelectorAll('.hover-card');
+
+          hoverTexts.forEach(text => {
+              text.addEventListener('click', function() {
+                  const targetId = this.id.replace('btn', 'show');
+                  const targetCard = document.getElementById(targetId);
+
+                  hoverCards.forEach(card => {
+                      if (card === targetCard) {
+                          card.style.display = card.style.display === 'none' ? 'block' : 'none';
+                      } else {
+                          card.style.display = 'none';
+                      }
+                  });
+              });
+          });
+      });
+    </script>
+
+</body>
+</html>
+
