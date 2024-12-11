@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Outcomes with Floating Table of Contents</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Mochiy Pop One', sans-serif;
+            background-color: #8EACE8;
+            color: #FFFFFF;
+        }
+
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        nav {
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #EFA9CE;
+            background-color: rgb(255, 255, 255);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: purple;
+        }
+
+        .main-content {
+            display: flex;
+            flex-grow: 1;
+            position: relative; /* Make it relative for positioning child elements */
+        }
+
+        .table-of-contents {
+            width: 250px; /* Fixed width for table of contents */
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            position: fixed; /* Fixed position to stay in view */
+            left: 20px; /* Position from the left */
+            top: 100px; /* Position from the top */
+            max-height: calc(100vh - 120px); /* Prevent overflow */
+            overflow-y: auto; /* Scrollable if content is too long */
+        }
+
+        .table-of-contents h2 {
+            margin-top: 0;
+            color: #EFA9CE;
+        }
+
+        .table-of-contents ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .table-of-contents li {
+            margin-bottom: 10px;
+        }
+
+        .table-of-contents a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .table-of-contents a:hover {
+            color: #EFA9CE;
+        }
+
+        .content-area {
+            flex-grow: 1; /* Take remaining space */
+            margin-right: 20px; /* Reduce right margin */
+            margin-top: 100px; /* Add top margin to accommodate the horizontal rectangle */
+        }
+
+        .pdf-link-container {
+            position: absolute;
+            right: 20px;
+            top: 35px;
+            width: calc(100% - 340px); /* Adjust width based on other elements */
+            height: calc(48.5vh - 100px); /* This makes it as tall as the vertical version */
+            background-color: #EFA9CE;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+       
+       .pdf-link {
+           text-decoration :none; 
+           color :#FFFFFF; 
+           font-size :1.5em ; 
+       }
+       
+       .section {
+           min-height :100vh; 
+           display :flex; 
+           justify-content :center; 
+           align-items :center; 
+           flex-direction :column; 
+           padding-top :20px ; 
+       }
+       
+       h2 {
+           font-size :2.5em ; 
+           margin-bottom :20px ; 
+       }
+       
+       @media screen and (max-width: 768px) {
+           .main-content {
+               flex-direction: column;
+               margin-right: 0; /* Reset margin on smaller screens */
+           }
+           
+           .pdf-link-container {
+               position: static; /* Make it static on small screens */
+               width:auto; 
+               height:auto; 
+               margin-top :20px ; 
+               transform:none ;
+           }
+           
+           .table-of-contents {
+               position:absolute ;
+               left:auto ;
+               right:auto ;
+               top:auto ;
+               bottom:auto ;
+               max-height:auto ;
+               overflow-y:auto ;
+          }
+       }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <nav>
+           <ul>
+               <li><a href="smth.html">HOME</a></li>
+               <li><a href="#about">ABOUT</a></li>
+               <li><a href="#projects">PROJECTS</a></li>
+               <li><a href="#login">LO'S</a></li>
+           </ul>
+       </nav>
+
+       <div class="main-content" id="home">
+           <div class="table-of-contents">
+               <h2>Work</h2>
+               <ul>
+                   <li><a href="#lo1">Interactive Media Design</a></li>
+                   <li><a href="#lo2">Learning Outcome 2</a></li>
+                   <li><a href="#lo3">Learning Outcome 3</a></li>
+                   <li><a href="#lo4">Learning Outcome 4</a></li>
+                   <li><a href="#lo5">Learning Outcome 5</a></li>
+               </ul>
+           </div>
+
+           <div class="content-area">
+                <div id="lo1" class="section">
+                    <h2>LO1 - Interactive Media Design</h2>
+                    <p>persona, prototyping research methods, interview, card sorting, interactive design, brand testing</p>
+                </div>
+
+                <div id="lo2" class="section">
+                    <h2>Learning Outcome 2</h2>
+                    <p>Content for Learning Outcome 2 goes here.</p>
+                </div>
+
+                <div id="lo3" class="section">
+                    <h2>Learning Outcome 3</h2>
+                    <p>Content for Learning Outcome 3 goes here.</p>
+                </div>
+
+                <div id="lo4" class="section">
+                    <h2>Learning Outcome 4</h2>
+                    <p>Content for Learning Outcome 4 goes here.</p>
+                </div>
+
+                <div id="lo5" class="section">
+                    <h2>Learning Outcome 5</h2>
+                    <p>Content for Learning Outcome 5 goes here.</p>
+                </div>
+          </div>
+
+          <!-- Fixed PDF Link Section -->
+          <div class="pdf-link-container">
+              <a href="path-to-your-pdf-file.pdf" class="pdf-link" target="_blank">
+                  View PDF
+              </a>
+          </div>
+
+       </div>
+   </div>
+</body>
+</html>
